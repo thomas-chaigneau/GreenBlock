@@ -2,27 +2,25 @@ const serverUrl = 'http://localhost:8000/datawebSite'
 
 chrome.webRequest.onHeadersReceived.addListener((detail) => {
   let tableOfOctel = detail.responseHeaders.filter(item => item.name === "content-length");
-  const withWeb = [];
+  const requestInfo = [];
   if (tableOfOctel.length === 1) {
-    withWeb.push(tableOfOctel[0].value, detail.initiator)
-    console.log(withWeb)
-
+    requestInfo.push(detail.initiator || 'Site Inconu', tableOfOctel[0].value)
 
     const data = {
-      webSite: withWeb[1],
-      Octel: withWeb[0]
+      webSiteName: requestInfo[0],
+      Octel: requestInfo[1]
   }
-  console.log(data)
+  // console.log(data)
+
     fetch(serverUrl, {
       method: "POST",
-      body: JSON.stringify(data), // only Octel Value
+      body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json"
       },
       credentials: "same-origin"
-    }).then((response) => {
-      // console.log(response)
-      response.json()
+    }).then((res) => {
+      res.json()
     }, (error) => {
       error.message
     })

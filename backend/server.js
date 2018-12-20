@@ -16,22 +16,22 @@ mongoose.connect(url, { useNewUrlParser: true }, (err) => {
   console.log('DB OKKKK')
 });
 
-let DataSchema = new mongoose.Schema({
-  webSite: { type: String },
+const DataSchema = new mongoose.Schema({
+  webSiteName: { type: String },
   Octel: { type: Number }
 });
+const DataModel = mongoose.model('Data', DataSchema );
 
-let DataModel = mongoose.model('Data', DataSchema );
 
 app.post('/datawebSite', async (req, res) => {
-  const bidule = {
-    webSite: req.body.webSite,
+  const toPostInDB = {
+    webSiteName: req.body.webSiteName,
     Octel: parseInt(req.body.Octel),
   };
-  console.log(bidule)
-  const newBidule = await new DataModel(bidule);
-  newBidule.save();
-  res.send(bidule);
+  console.log(toPostInDB)
+  const newtoPostInDB = await new DataModel(toPostInDB);
+  newtoPostInDB.save();
+  res.end();
 })
 
 app.get('/datawebSite', async (req, res) => {
@@ -43,7 +43,6 @@ app.get('/datawebSite', async (req, res) => {
 app.get('/', (req, res) => {
   res.send('coucou le hack').status(200);
 })
-
 
 app.listen(port, () => {
 console.log('running server on ' + port);
