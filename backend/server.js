@@ -17,40 +17,27 @@ mongoose.connect(url, { useNewUrlParser: true }, (err) => {
 });
 
 let DataSchema = new mongoose.Schema({
-  webSite: {
-    type: String
-  },
-  Octel: {
-    type: Number
-  }
+  webSite: { type: String },
+  Octel: { type: Number }
 });
 
 let DataModel = mongoose.model('Data', DataSchema );
 
-
 app.post('/datawebSite', async (req, res) => {
-  // console.log('rrrrr')
-  // console.log(req.body.Octel[0].value, typeof req.body.Octel[0].value);
-  // console.log(typeof parseInt(req.body.octel));
   const bidule = {
     webSite: req.body.webSite,
-    Octel: parseInt(req.body.Octel[0].value),
+    Octel: parseInt(req.body.Octel),
   };
   console.log(bidule)
   const newBidule = await new DataModel(bidule);
   newBidule.save();
   res.send(bidule);
-
 })
 
-// app.post("/leaderboard", async (req, res) => {
-//   const score = req.body.score;
-//   console.log(score);
-//   const newScore = await new leaderboardModel(score);
-//   newScore.save();
-//   console.log(newScore);
-//   res.send("done");
-// });
+app.get('/datawebSite', async (req, res) => {
+  const allData = await DataModel.find({});
+  res.json({ allData });
+});
 
 
 app.get('/', (req, res) => {

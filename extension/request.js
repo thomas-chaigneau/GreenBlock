@@ -1,13 +1,18 @@
 const serverUrl = 'http://localhost:8000/datawebSite'
 
-chrome.webRequest.onHeadersReceived.addListener((details) => {
-  let tableitem = (details.responseHeaders.filter(item => item.name === "content-length"));
-  if (tableitem.length > 0) {
+chrome.webRequest.onHeadersReceived.addListener((detail) => {
+  let tableOfOctel = detail.responseHeaders.filter(item => item.name === "content-length");
+  const withWeb = [];
+  if (tableOfOctel.length === 1) {
+    withWeb.push(tableOfOctel[0].value, detail.initiator)
+    console.log(withWeb)
+
+
     const data = {
-      webSite: "find The name of the website",
-      Octel: tableitem
+      webSite: withWeb[1],
+      Octel: withWeb[0]
   }
-    console.log(data)
+  console.log(data)
     fetch(serverUrl, {
       method: "POST",
       body: JSON.stringify(data), // only Octel Value
@@ -16,13 +21,11 @@ chrome.webRequest.onHeadersReceived.addListener((details) => {
       },
       credentials: "same-origin"
     }).then((response) => {
-      console.log(response)
+      // console.log(response)
       response.json()
     }, (error) => {
-      error.message //=> String
+      error.message
     })
   }
-
-
 },
 {urls: ["<all_urls>"]},["responseHeaders"]);
