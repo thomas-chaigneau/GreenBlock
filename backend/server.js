@@ -17,23 +17,25 @@ mongoose.connect(url, { useNewUrlParser: true }, (err) => {
 });
 
 let DataSchema = new mongoose.Schema({
-  webSite: {
-    type: String
-  },
-  kiloctelledBy: {
-    type: String
-  },
+  // webSite: {
+  //   type: String
+  // },
+  Octel: {
+    type: Number
+  }
 });
 
 let DataModel = mongoose.model('Data', DataSchema );
 
 
 app.post('/datawebSite', async (req, res) => {
+  console.log('rrrrr')
+  console.log(req.body.octel, typeof req.body.octel);
+  // console.log(typeof parseInt(req.body.octel));
   const bidule = {
-    webSite: req.body.webSite,
-    octel: req.body.octel,
+    // webSite: req.body.webSite,
+    Octel: req.body.octel,
   };
-  console.log(bidule);
   const newBidule = await new DataModel(bidule);
   newBidule.save();
   res.send("done");
