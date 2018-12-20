@@ -3,10 +3,14 @@ const serverUrl = 'http://localhost:8000/datawebSite'
 chrome.webRequest.onHeadersReceived.addListener((details) => {
   let tableitem = (details.responseHeaders.filter(item => item.name === "content-length"));
   if (tableitem.length > 0) {
-    // console.log(tableitem[0].value, typeof tableitem[0].value, typeof parseInt(tableitem[0].value))
+    const data = {
+      webSite: "find The name of the website",
+      Octel: tableitem
+  }
+    console.log(data)
     fetch(serverUrl, {
       method: "POST",
-      body: parseInt(tableitem[0].value), // only Octel Value
+      body: JSON.stringify(data), // only Octel Value
       headers: {
         "Content-Type": "application/json"
       },
