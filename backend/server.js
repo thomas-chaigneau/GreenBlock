@@ -28,7 +28,7 @@ app.post('/datawebSite', async (req, res) => {
     webSiteName: req.body.webSiteName,
     Octel: parseInt(req.body.Octel),
   };
-  console.log(toPostInDB)
+  // console.log(toPostInDB)
   const newtoPostInDB = await new DataModel(toPostInDB);
   newtoPostInDB.save();
   res.end();
@@ -36,6 +36,7 @@ app.post('/datawebSite', async (req, res) => {
 
 app.get('/datawebSite', async (req, res) => {
   const allData = await DataModel.find({});
+  // console.log(allData.webSiteName);
   res.json({ allData });
 });
 
