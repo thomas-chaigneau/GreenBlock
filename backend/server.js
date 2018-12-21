@@ -16,44 +16,34 @@ mongoose.connect(url, { useNewUrlParser: true }, (err) => {
   console.log('DB OKKKK')
 });
 
-let DataSchema = new mongoose.Schema({
-  webSite: {
-    type: String
-  },
-  kiloctelledBy: {
-    type: String
-  },
+const DataSchema = new mongoose.Schema({
+  webSiteName: { type: String },
+  Octel: { type: Number }
 });
-
-let DataModel = mongoose.model('Data', DataSchema );
+const DataModel = mongoose.model('Data', DataSchema );
 
 
 app.post('/datawebSite', async (req, res) => {
-  const bidule = {
-    webSite: req.body.webSite,
-    octel: req.body.octel,
+  const toPostInDB = {
+    webSiteName: req.body.webSiteName,
+    Octel: parseInt(req.body.Octel),
   };
-  console.log(bidule);
-  const newBidule = await new DataModel(bidule);
-  newBidule.save();
-  res.send("done");
-
+  // console.log(toPostInDB)
+  const newtoPostInDB = await new DataModel(toPostInDB);
+  newtoPostInDB.save();
+  res.end();
 })
 
-// app.post("/leaderboard", async (req, res) => {
-//   const score = req.body.score;
-//   console.log(score);
-//   const newScore = await new leaderboardModel(score);
-//   newScore.save();
-//   console.log(newScore);
-//   res.send("done");
-// });
+app.get('/datawebSite', async (req, res) => {
+  const allData = await DataModel.find({});
+  // console.log(allData.webSiteName);
+  res.json({ allData });
+});
 
 
 app.get('/', (req, res) => {
   res.send('coucou le hack').status(200);
 })
-
 
 app.listen(port, () => {
 console.log('running server on ' + port);
