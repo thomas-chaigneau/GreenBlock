@@ -1,0 +1,35 @@
+.GreenSection{
+    background-image: url('../Fond.jpg');
+   
+  
+    
+}
+.GreenSection .logo{
+    display:  block;
+margin-left: auto;
+margin-right: auto;
+    width: 20%;
+    height: 20%;
+}
+
+.button
+{
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    
+    width: 25vw;
+    height: 11vh;
+    border-radius: 30px;
+    margin: 3em;
+    text-align: center;
+    background: #f7f7f7;
+    background-color: rgba(240, 238, 236, 0.8);
+    outline: none;
+}
+p{
+    color: rgb(121, 182, 126);
+    font-size: 200%;
+    text-shadow: 1px 1px rgb(24, 116, 1);
+    text-decoration:none;
+}

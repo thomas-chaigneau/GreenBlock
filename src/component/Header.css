@@ -1,0 +1,31 @@
+.Header {
+    display: flex;
+    background-color: black;
+    justify-content: space-around;
+    
+}
+
+.logo {
+    width: 7%;
+    height: 7%;
+}
+
+ul {
+    display: flex
+}
+
+li {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin: 2em;
+    margin-bottom: 0;
+}
+
+ .link {
+    color: rgb(97, 165, 85);
+    font-size: 25px;
+    text-decoration: none;
+
+    
+}

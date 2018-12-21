@@ -1,0 +1,24 @@
+.icon{
+    width: 18%;
+    height: 18%;
+    margin-right:11em;
+    margin-left: 23em;
+}
+.Information{
+   background-color:rgb(221, 215, 215);
+   display:flex;
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    margin-right:23em;
+}
+.Information p{
+    color: rgb(17, 16, 16);
+
+}
+.Information h2{
+    color: white;
+    font-size: 35px;
+}
