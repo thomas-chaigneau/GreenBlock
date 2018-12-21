@@ -1,0 +1,10 @@
+.Plug{
+    background-image: url("../mito.png");
+    position: fixed;
+    position:relative; 
+    
+    /* Préserve le ratio de l'image */
+    min-width: 90vw;
+    min-height: 90vh;
+
+}

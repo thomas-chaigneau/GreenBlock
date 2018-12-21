@@ -12,7 +12,7 @@ class Information extends Component {
      <img src={icon} class='icon'/>
      <div class='text'>
      <h2>10% de l'énegie mondiale</h2>
-     <p>Internet consomme 10% de l'énérgie mondiale. Obtenez un bilan personnalisé de vos usages online basé sur votre historique de votre de navigation et découvrez commzenr vous limiter à l'essentiel.</p>
+     <p>Internet consomme 10% de l'énérgie mondiale. Obtenez un bilan personnalisé de vos usages online basés sur votre historique de votre de navigation et découvrez comment vous limiter à l'essentiel.</p>
       </div>
       </div>
       <Information2/>

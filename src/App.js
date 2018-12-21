@@ -3,9 +3,9 @@ import './App.css';
 import Header from './component/Header';
 import GreenSection from './component/GreenSection';
 import Information from './component/Information';
-import Information2 from './component/Information2';
 import Contact from './component/Contact';
 import Footer from './component/Footer';
+import Plug from './component/Plug';
 import { Switch, Route } from 'react-router-dom';
 
 class App extends Component {
@@ -15,9 +15,9 @@ class App extends Component {
         <Header />
         <Switch>
         <Route exact path="/" component={GreenSection} />
-            <Route exact path="/Information" component={Information} />
-            
-            <Route exact path="/Contact" component={Contact} />
+            <Route  path="/Information" component={Information} />
+            <Route path="/Plug" component={Plug}/>
+            <Route  path="/Contact" component={Contact} />
         </Switch>
         <Footer />
 
