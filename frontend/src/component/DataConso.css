@@ -1,0 +1,38 @@
+/* .DataConso{
+    background-color: rgba(57, 59, 58, 0.5);
+    margin:4em;
+    padding:0.5em;
+    border: 3px black solid;
+    
+} */
+
+h1 {
+
+    font-size: 80px;
+    color: rgb(107, 97, 95);
+    text-shadow: 2px 3px black;
+    margin:0.5;
+}
+
+h2 {
+    font-size: 60px;
+    color: rgb(170, 168, 153);
+    text-shadow: 2px 3px black;
+}
+
+h3 {
+    font-size: 50px;
+    color: rgb(158, 165, 152);
+    text-shadow: 2px 3px black;
+}
+
+h4 {
+    font-size: 40px;
+    color: rgb(240, 231, 230);
+    text-shadow: 2px 3px black;
+}
+p{
+    font-size: 30px;
+    color: rgb(190, 195, 209);
+    text-shadow: 2px 2px rgb(10, 10, 10);   
+}
