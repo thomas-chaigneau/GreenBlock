@@ -5,6 +5,7 @@ import './DataConso.css';
 import deux from '../2.png';
 import trois from '../3.png';
 import un from '../1.png'
+import panda from './panda.png'
 
 class DataConso extends Component {
   constructor() {
@@ -58,7 +59,7 @@ class DataConso extends Component {
       <ul>
         <h1>{reducData} Kilobytes</h1>
         <h2>Environ {mailweight} mails envoyés</h2>
-        <h3> {co2}Kg de CO2 rejeté</h3>
+        <h3> {co2}Kg de CO2 rejeté</h3><img src={panda}/>
         <h4>gràce à vous, à nous <br/>
         et à nos trois gagnants</h4> 
         <div class="result">
